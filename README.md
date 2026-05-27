@@ -54,14 +54,14 @@ java DigitalSignatureDemo
 The application runs two execution scenarios: one with original untampered data, and one where the data is maliciously modified after signing.
 
 --- STARTING DIGITAL SIGNATURE PROCESS ---
-Original Data: Hello, this is a secure message!
-Signature Generated (Hex): 3a2f89b1cde405... [truncated]
+* Original Data: Hello, this is a secure message!
+* Signature Generated (Hex): 3a2f89b1cde405... [truncated]
 
 Verification 1 (Untampered Data)
-Does the calculated hash match the decrypted signature hash? -> **true**
+* Does the calculated hash match the decrypted signature hash? -> **true**
 
 Verification 2 (Tampered Data)
-Does the calculated hash match? -> **false**
+* Does the calculated hash match? -> **false**
 
 ## 🧠 Challenges Overcame
 1. **Abstracting the Dual-Step Process Natively**
