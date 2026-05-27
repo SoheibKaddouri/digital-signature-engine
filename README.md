@@ -57,10 +57,10 @@ The application runs two execution scenarios: one with original untampered data,
 Original Data: Hello, this is a secure message!
 Signature Generated (Hex): 3a2f89b1cde405... [truncated]
 
-## Verification 1 (Untampered Data)
+Verification 1 (Untampered Data)
 Does the calculated hash match the decrypted signature hash? -> **true**
 
-## Verification 2 (Tampered Data)
+Verification 2 (Tampered Data)
 Does the calculated hash match? -> **false**
 
 ## 🧠 Challenges Overcame
