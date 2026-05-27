@@ -37,3 +37,36 @@ Since this project relies completely on Java's core library package, no external
    ```bash
    git clone [https://github.com/SoheibKaddouri/algorithms.git](https://github.com/SoheibKaddouri/algorithms.git)
    cd algorithms/digital-signatures
+
+2. **Compile the Java File:**
+
+```bash
+javac DigitalSignatureDemo.java
+```
+
+3. **Run the Application:**
+
+```bash
+java DigitalSignatureDemo
+```
+
+## Expected Output
+The application runs two execution scenarios: one with original untampered data, and one where the data is maliciously modified after signing.
+
+--- STARTING DIGITAL SIGNATURE PROCESS ---
+Original Data: Hello, this is a secure message!
+Signature Generated (Hex): 3a2f89b1cde405... [truncated]
+
+## Verification 1 (Untampered Data)
+Does the calculated hash match the decrypted signature hash? -> **true**
+
+## Verification 2 (Tampered Data)
+Does the calculated hash match? -> **false**
+
+## 🧠 Challenges Overcame
+1. **Abstracting the Dual-Step Process Natively**
+   - In mathematical theory, digital signing requires explicitly running a hash function first, and then feeding that hash into an RSA encryption cipher. In Java, managing these two states manually can introduce security vulnerabilities (such as incorrect padding or initialization vectors).
+   - **Solution:** I overcame this by leveraging Java's highly optimized Signature class with the wrapper standard instance "SHA256withRSA". This natively pairs the message digesting and asymmetric cipher operations securely under a unified engine.
+2. **Simulating Real-World Tampering**
+   - To fully test the verification logic, I needed to simulate a malicious interceptor. Hardcoding static byte checks would not reflect algorithmic accuracy.
+   - **Solution:** Built a dynamic verification routine that modifies the string payload after the signature generation phase. This successfully proved that changing even a single character breaks the hash matching condition, asserting the algorithm's strength in detecting data tampering.
